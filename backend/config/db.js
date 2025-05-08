@@ -9,10 +9,8 @@ export const connectDB = async () => {
   }
 
   try {
-    const conn = await mongoose.connect(mongoURI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
+    // Assign the connection object to a variable
+    const conn = await mongoose.connect(mongoURI);
     console.log(`✅ Database Connected: ${conn.connection.host}`);
   } catch (error) {
     console.error(`❌ Database Connection Failed: ${error.message}`);
