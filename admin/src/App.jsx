@@ -11,7 +11,7 @@ import 'react-toastify/dist/ReactToastify.css';
 const App = () => {
 
   // const url = "http://localhost:4000"
-  const url = "https://hangry-backend.onrender.com"
+  const url = "https://food-delivery-ig2k-hnw9rddvw-ibrahimjps-projects.vercel.app"
 
   return (
     <div>
