@@ -15,8 +15,14 @@ const app = express()
 const port = process.env.PORT || 4000
 
 // middleware
+// Updated CORS configuration to allow requests from your local development server
+app.use(cors({
+  origin: ['http://localhost:5173', 'https://food-delivery-frontend-chi-umber.vercel.app'],
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'token']
+}))
 app.use(express.json())
-app.use(cors())
 
 // db connection
 connectDB();
@@ -29,7 +35,6 @@ app.use("/api/cart",cartRouter)
 app.use("/api/order",orderRouter)
 
 
-
 app.get("/",(req,res)=>{
     res.send("API Working")
 })
@@ -37,6 +42,3 @@ app.get("/",(req,res)=>{
 app.listen(port,()=>{
     console.log(`Server Started on http://localhost:${port}`)
 })
-
-// YOU CAN SAVE UR DATABASE IN THIS COMMENT IF U WANT --> 
-
