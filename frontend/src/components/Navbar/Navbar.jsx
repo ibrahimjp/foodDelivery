@@ -103,13 +103,13 @@ const Navbar = ({ setShowLogin }) => {
             <div className="navbar-right">
                 <div className="navbar">
                     <label
-                        for="visual-toggle"
+                        htmlFor="visual-toggle"
                         id="visual-toggle-button"
-                        onclick="visualMode()"
+                        onClick="visualMode()"
                     >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
-                            class="svgIcon-toggle sun-svg"
+                            className="svgIcon-toggle sun-svg"
                             viewBox="0 0 24 24"
                         >
                             <g fill="#f1bd00">
@@ -120,7 +120,7 @@ const Navbar = ({ setShowLogin }) => {
 
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
-                            class="svgIcon-toggle moon-svg"
+                            className="svgIcon-toggle moon-svg"
                             fill="#f9ba48"
                             viewBox="0 0 384 512"
                         >
@@ -128,7 +128,7 @@ const Navbar = ({ setShowLogin }) => {
                         </svg>
                         <input
                             type="checkbox"
-                            class="visual-toggle"
+                            className="visual-toggle"
                             id="visual-toggle"
                         />
                     </label>

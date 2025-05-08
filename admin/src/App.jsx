@@ -11,7 +11,7 @@ import 'react-toastify/dist/ReactToastify.css';
 const App = () => {
 
   // const url = "http://localhost:4000"
-  const url = "https://food-delivery-ig2k-hnw9rddvw-ibrahimjps-projects.vercel.app"
+  const url = "https://food-delivery-backend-omega.vercel.app"
 
   return (
     <div>

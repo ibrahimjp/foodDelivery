@@ -24,27 +24,44 @@ const LoginPopup = ({setShowLogin}) => {
 
 
   const onLogin = async (event) => {
-    event.preventDefault()
+    event.preventDefault();
     let newUrl = url;
-    if (currState==="Login"){
-      newUrl += "/api/user/login"
+    if (currState === "Login") {
+      newUrl += "/api/user/login";
+    } else {
+      newUrl += "/api/user/register";
     }
-    else{
-      newUrl += "/api/user/register"
+  
+    try {
+      const response = await axios.post(newUrl, data, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+        withCredentials: true, // Include cookies if required
+      });
+  
+      if (response.data.success) {
+        setToken(response.data.token);
+        localStorage.setItem("token", response.data.token);
+        setShowLogin(false);
+      } else {
+        alert(response.data.message);
+      }
+  
+    } catch (error) {
+      console.error("Login/Signup Error:", error.message);
+  
+      // Handle CORS error
+      if (error.response) {
+        alert(`Error: ${error.response.data.message}`);
+      } else if (error.request) {
+        alert("No response received from the server. Check CORS settings.");
+      } else {
+        alert(`Error: ${error.message}`);
+      }
     }
-
-    const response = await axios.post(newUrl,data);
-
-    if (response.data.success){
-      setToken(response.data.token);
-      localStorage.setItem("token",response.data.token)
-      setShowLogin(false)
-    }
-    else{
-      alert(res.data.message)
-    }
-
-  }
+  };
+  
 
 
 
