@@ -4,9 +4,11 @@
   "description": "",
   "main": "server.js",
   "type": "module",
-  "scripts": {
-    "server": "node server.js"
-  },
+ "scripts": {
+  "server": "node server.js",
+  "build": "echo 'No build step for backend'"
+}
+,
   "author": "",
   "license": "ISC",
   "dependencies": {
